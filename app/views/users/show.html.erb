@@ -1,3 +1,21 @@
 <h1>User Info: </h1>
 
-<p>Name: <%= user.first_name %></p>
+<p>Name: <%= @user.first_name %> <%= @user.last_name %> </p>
+<p>Email: <%= @user.email %></p>
+
+<h1> Delete Account</h1>
+
+<%= form_tag '/user', method: :delect do  %>
+  <div>
+    <p><%= @user.first_name %> <%= @user.last_name %></p>
+  </div>
+  <div>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div>
+    <%= label_tag :password_confirmation %>
+    <%= password_field_tag :password_confirmation %>
+  </div>
+  <%= submit_tag "Submit" %>
+<% end %>
