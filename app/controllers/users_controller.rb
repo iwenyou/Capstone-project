@@ -17,9 +17,9 @@ class UsersController < ApplicationController
     )
 
     if user.save
-      session[:id] = user.id
+      login(user)
       flash[:succse] = "succesfully create account!"
-      redirect_to "/user/index"
+      redirect_to "/user/show"
     else
       flash[:warning] = "error occured during creating user, please try again"
       redirect_to "/user/new"
@@ -28,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    user = current_user
 
   end
 
