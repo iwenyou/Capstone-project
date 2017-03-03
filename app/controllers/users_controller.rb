@@ -9,20 +9,26 @@ class UsersController < ApplicationController
 
   def create
 
-    user = User.new(
-    first_name: params[:first_name],
-    last_name: params[:last_name],
-    email: params[:email],
-    password: params[:password]
-    )
+    if params[:password] === params[:password_confirmation]
+      user = User.new(
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      password: params[:password]
+      )
+    else
+      flash[:warning] = "The two password you entered did not match"
+      redirect_to "/users/new"
+    end
+
 
     if user.save
       login(user)
       flash[:succse] = "succesfully create account!"
-      redirect_to "/user"
+      redirect_to "/users/#{user.id}"
     else
       flash[:warning] = "error occured during creating user, please try again"
-      redirect_to "/user/new"
+      redirect_to "/users/new"
     end
 
   end
@@ -46,22 +52,23 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:succse] = "succesfully create account!"
-      redirect_to "/user"
+      redirect_to "/users/#{@user.id}"
     else
       flash[:warning] = "unexpect error occured, please check your input and try again. "
-      redirect_to "/user/edit"
+      redirect_to "/users/edit"
     end
 
   end
 
   def destroy
-    @user = current_user
-    if @user.password === params[:password]
+    @user = User.find_by(id: params[:id])
+
+    if @user.password == params[:password]
       @user.destroy
-      redirect_to "/user/login"
+      redirect_to "/users/login"
     else
       flash[:warning] = "Wrong password, please try again."
-      redirect_to "/user/destroy"
+      redirect_to "/users/#{@user.id}"
     end
   end
 

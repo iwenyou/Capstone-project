@@ -1,24 +1,27 @@
 <h1>Edit your profile!</h1>
-<%= form_tag '/user', method: :patch do  %>
-  <div>
+<%= form_tag "/users/#{@user.id}", method: :patch do  %>
+<div>
     <%= label_tag :first_name %>
     <%= text_field_tag :first_name, value=@user.first_name %>
-  </div>
-  <div>
+</div>
+<div>
     <%= label_tag :last_name %>
     <%= text_field_tag :last_name, value=@user.last_name %>
-  </div>
-  <div>
+</div>
+<div>
     <%= label_tag :email %>
     <%= text_field_tag :email, value=@user.email %>
-  </div>
-  <div>
+</div>
+<div>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
-  </div>
-  <div>
+</div>
+<div>
     <%= label_tag :password_confirmation %>
     <%= password_field_tag :password_confirmation %>
-  </div>
-  <%= submit_tag "Submit" %>
+</div>
+<%= submit_tag "Submit" %>
 <% end %>
+
+<%= button_to "cancel", {:controller => :users,
+      :action => 'show' }, :method => :get %>

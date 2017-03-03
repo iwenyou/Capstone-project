@@ -1,21 +1,36 @@
-<h1>User Info: </h1>
+<h1>User Info:
+</h1>
 
-<p>Name: <%= @user.first_name %> <%= @user.last_name %> </p>
-<p>Email: <%= @user.email %></p>
+<p>Name:
+    <%= @user.first_name %>
+    <%= @user.last_name %>
+</p>
+<p>Email:
+    <%= @user.email %></p>
 
-<h1> Delete Account</h1>
+<div>
+    <%= button_to "log out", {:controller => :sessions,
+            :action => 'destroy' }, :method => :delete %>
 
-<%= form_tag '/user', method: :delect do  %>
-  <div>
-    <p><%= @user.first_name %> <%= @user.last_name %></p>
-  </div>
-  <div>
+    <%= button_to "edit", {:controller => :users,
+                  :action => 'edit' }, :method => :get %>
+</div>
+
+<h1>
+    Delete Account</h1>
+
+<div>
+    <p><%= @user.first_name %>
+        <%= @user.last_name %></p>
+</div>
+<%= form_tag "/users/#{@user.id}", method: :delete do  %>
+<div>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
-  </div>
-  <div>
+</div>
+<div>
     <%= label_tag :password_confirmation %>
     <%= password_field_tag :password_confirmation %>
-  </div>
-  <%= submit_tag "Submit" %>
+</div>
+<%= submit_tag "Submit" %>
 <% end %>
