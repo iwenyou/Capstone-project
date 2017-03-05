@@ -1,2 +1,18 @@
 <h1>Groceries#new</h1>
 <p>Find me in app/views/groceries/new.html.erb</p>
+<h1></h1>
+<%= form_tag '/groceries', method: :post do  %>
+<div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+</div>
+<div>
+    <%= label_tag :made_by %>
+    <%= date_field_tag :made_by %>
+</div>
+<div>
+    <%= label_tag :expiration_date %>
+    <%= date_field_tag :expiration_date %>
+</div>
+<%= submit_tag "Submit" %>
+<% end %>

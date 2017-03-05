@@ -1,2 +1,11 @@
 <h1>Groceries#index</h1>
-<p>Find me in app/views/groceries/index.html.erb</p>
+
+<% @groceries.each do |grocery| %>
+<h4>Name:
+    <%= grocery.name %></h4>
+<p>Made By:
+    <%= grocery.made_by %></p>
+<p>Expiration Date:
+    <%= grocery.expiration_date %></p>
+    <br>
+<% end %>
