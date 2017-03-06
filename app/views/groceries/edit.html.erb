@@ -1,30 +1,21 @@
-<h1>Groceries#edit</h1>
-<p>Find me in app/views/groceries/edit.html.erb</p>
 
 <h1>Edit your grocery!</h1>
-<%= form_tag "/users/#{@user.id}", method: :patch do  %>
+<%= form_tag "/groceries/#{@grocery.id}", method: :patch do  %>
 <div>
     <%= label_tag :name %>
-    <%= text_field_tag :name, value=@user.first_name %>
+    <%= text_field_tag :name, value=@grocery.name %>
 </div>
 <div>
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, value=@user.last_name %>
+    <%= label_tag :made_by %>
+    <%= date_field_tag :made_by, value=@grocery.made_by %>
 </div>
 <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email, value=@user.email %>
+    <%= label_tag :expiration_date %>
+    <%= date_field_tag :expiration_date, value=@grocery.expiration_date %>
 </div>
-<div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-</div>
-<div>
-    <%= label_tag :password_confirmation %>
-    <%= password_field_tag :password_confirmation %>
-</div>
+
 <%= submit_tag "Submit" %>
 <% end %>
 
-<%= button_to "cancel", {:controller => :users,
+<%= button_to "cancel", {:controller => :groceries,
       :action => 'show' }, :method => :get %>
