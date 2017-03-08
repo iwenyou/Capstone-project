@@ -1,6 +1,6 @@
 class GroceriesController < ApplicationController
   def index
-    @groceries = Grocery.all
+    @groceries = Grocery.where(user_id: current_user.id)
   end
 
   def new
@@ -62,6 +62,6 @@ class GroceriesController < ApplicationController
       flash[:warning] = "unable to delete grocery!"
       redirect_to "/groceries/#{@grocery.id}"
     end
-    
+
   end
 end

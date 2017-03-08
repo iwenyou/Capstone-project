@@ -13,5 +13,12 @@
     <%= label_tag :expiration_date %>
     <%= date_field_tag :expiration_date %>
 </div>
+<div>
+    <%= label_tag :expiration_date %>
+    <%= date_field_tag :expiration_date %>
+</div>
 <%= submit_tag "Submit" %>
 <% end %>
+
+<%= button_to "cancel", {:controller => :groceries,
+      :action => 'index' }, :method => :get %>

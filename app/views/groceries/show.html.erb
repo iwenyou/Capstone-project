@@ -6,3 +6,10 @@
     <%= @grocery.made_by %></p>
 <p>Expiration Date:
     <%= @grocery.expiration_date %></p>
+
+<%= button_to "Home", {:controller => :groceries,
+          :action => 'index' }, :method => :get %>
+<%= button_to "edit", {:controller => :groceries,
+          :action => 'edit' }, :method => :get %>
+<%= button_to "delete", {:controller => :groceries,
+          :action => 'destroy' }, :method => :delete %>

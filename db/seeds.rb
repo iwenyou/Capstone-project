@@ -8,11 +8,19 @@
 
 # Grocery.create({name: Faker::Food.ingredient,user_id: })
 
-100.times do
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: "123456"
-    )
+# 100.times do
+#   User.create(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: "123456"
+#     )
+# end
+
+10.times do
+  Grocery.create(
+    name: Faker::Food.ingredient,
+    expiration_date: (Faker::Date.forward(100)).strftime("%F"),
+    user_id: 5
+  )
 end

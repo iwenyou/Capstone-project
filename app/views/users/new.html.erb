@@ -22,3 +22,6 @@
 </div>
 <%= submit_tag "Submit" %>
 <% end %>
+
+<%= button_to "cancel", {:controller => :users,
+      :action => 'show' }, :method => :get %>
