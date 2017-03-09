@@ -4,6 +4,7 @@ class GroceriesController < ApplicationController
   end
 
   def new
+    @catagories = Catagory.all
   end
 
   def create
