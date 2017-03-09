@@ -1,0 +1,6 @@
+<% @catagories.each do |catagory| %>
+<p> <%= catagory.name %></p>
+<% end %>
+
+<%= button_to "add a type", {:controller => :catagories,
+      :action => 'new' }, :method => :get %>

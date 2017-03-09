@@ -14,8 +14,8 @@
     <%= date_field_tag :expiration_date %>
 </div>
 <div>
-    <%= label_tag :Catagory %>
-    <%= select_tag :Catagory, options_from_collection_for_select(@catagories, :id, :name, @meeting.tags.map {|tag| tag.id}), multiple: true %>
+    <%= label_tag :catagory %>
+    <%= select_tag :catagory_id, options_from_collection_for_select(@catagories, :id, :name, multiple: true) %>
 </div>
 <%= submit_tag "Submit" %>
 <% end %>

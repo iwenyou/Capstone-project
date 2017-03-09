@@ -6,6 +6,10 @@
     <%= @grocery.made_by %></p>
 <p>Expiration Date:
     <%= @grocery.expiration_date %></p>
+<p>Catagories:</p>
+    <% @catagories.each do |catagory| %>
+    <p> <%= catagory.name %></p>
+    <% end %>
 
 <%= button_to "Home", {:controller => :groceries,
           :action => 'index' }, :method => :get %>

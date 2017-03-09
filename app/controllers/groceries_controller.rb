@@ -16,6 +16,10 @@ class GroceriesController < ApplicationController
     )
 
     if grocery.save
+      GroceryCategory.create(
+      grocery_id: grocery.id,
+      catagory_id: params[:catagory_id]
+      )
       flash[:succse] = "succesfully create grocery!"
       redirect_to "/groceries/#{grocery.id}"
     else
@@ -28,6 +32,8 @@ class GroceriesController < ApplicationController
   def show
 
     @grocery = Grocery.find_by(id: params[:id])
+
+    @catagories = @grocery.catagories
 
   end
 
