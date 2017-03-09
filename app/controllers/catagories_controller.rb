@@ -11,7 +11,7 @@ class CatagoriesController < ApplicationController
   end
 
   def create
-    catagory = Catagory.new(
+    catagory = Catagory.create(
     name: params[:name]
     )
 
@@ -21,7 +21,7 @@ class CatagoriesController < ApplicationController
     #   flash[:warning] = "unexpect error occured, please try again!"
     #   redirect_to "/catagories/new"
 
-    catagory.save
+    # catagory.save
     redirect_to "/catagories"
   end
 
