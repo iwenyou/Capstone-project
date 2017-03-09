@@ -22,3 +22,6 @@
 </div>
 <%= submit_tag "Submit" %>
 <% end %>
+
+<%= button_to "sign in", {:controller => :sessions,
+      :action => 'new' }, :method => :get %>
