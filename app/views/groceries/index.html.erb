@@ -1,19 +1,34 @@
-<h1>Current User: <a href="/users/<%= current_user.id %>"><%= current_user.first_name %></a></h1>
+<div ng-app="app">
+    <div ng-controller="groceryCtrl">
+        <p>
+            {{message}}
+        </p>
+        <h1>Current User:
+            <a href="/users/<%= current_user.id %>"><%= current_user.first_name %></a>
+        </h1>
 
-<%= button_to "Add Grocery", {:controller => :groceries,
-      :action => 'new' }, :method => :get %>
+        <%= button_to "Add Grocery", {:controller => :groceries,
+          :action => 'new' }, :method => :get %>
+        <h1>Groceries:
+        </h1><br>
+        <div ng-init="setup">
+          
+        </div>
 
 
-<h1>Groceries: </h1><br>
+
+    </div>
+</div>
 
 <% @groceries.each do |grocery| %>
 <h4>Name:
-  <a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a></h4>
+    <a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a>
+</h4>
 <p>Created By:
     <%= grocery.user.first_name %></p>
 <p>Made By:
     <%= grocery.made_by %></p>
 <p>Expiration Date:
     <%= grocery.expiration_date %></p>
-    <br>
+<br>
 <% end %>
