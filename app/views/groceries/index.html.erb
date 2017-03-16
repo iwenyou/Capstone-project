@@ -7,28 +7,28 @@
             <a href="/users/<%= current_user.id %>"><%= current_user.first_name %></a>
         </h1>
 
-        <%= button_to "Add Grocery", {:controller => :groceries,
-          :action => 'new' }, :method => :get %>
+        <h3>New Grocery:</h3>
+        Grocery Name:
+        <input ng-model="newGroceryName"><br>
+        Expiration Date:
+        <input ng-model="addExpirationDate"><br>
+        <button ng-click="addGroceries(newGroceryName, addExpirationDate)">Add Grocery</button>
+
         <h1>Groceries:
         </h1><br>
-        <div ng-init="setup">
-          
+        <div class="" ng-init="setupGroceries()">
+            <div class="" ng-repeat="grocery in groceries">
+                <h4>Name:
+                    <a href="/groceries/{{grocery.id}}">{{grocery.name}}</a>
+                </h4>
+                <p>Created By:
+                    {{grocery.user_id}}</p>
+                <p>Made By:
+                    {{grocery.made_by}}</p>
+                <p>Expiration Date:
+                    {{grocery.expiration_date}}</p>
+                <br>
+            </div>
         </div>
-
-
-
     </div>
 </div>
-
-<% @groceries.each do |grocery| %>
-<h4>Name:
-    <a href="/groceries/<%= grocery.id %>"><%= grocery.name %></a>
-</h4>
-<p>Created By:
-    <%= grocery.user.first_name %></p>
-<p>Made By:
-    <%= grocery.made_by %></p>
-<p>Expiration Date:
-    <%= grocery.expiration_date %></p>
-<br>
-<% end %>

@@ -1,7 +1,6 @@
 class Api::V1::UsersController < ApplicationController
-
   def index
-    # @user = User.find_by(current_user.id )
-    # render "users.json.jbuilder"
+    @user = current_user
+    render "index.json.jbuilder"
   end
 end
