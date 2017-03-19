@@ -1,18 +1,18 @@
 <div ng-app="app">
     <div ng-controller="groceryCtrl">
         <p>
-            {{message}}
+            {{responseCreate}}
         </p>
         <h1>Current User:
             <a href="/users/<%= current_user.id %>"><%= current_user.first_name %></a>
         </h1>
 
-        <h3>New Grocery:</h3>
+        <h3>Add Grocery:</h3>
         Grocery Name:
         <input ng-model="newGroceryName"><br>
         Expiration Date:
-        <input ng-model="addExpirationDate"><br>
-        <button ng-click="addGroceries(newGroceryName, addExpirationDate)">Add Grocery</button>
+        <input ng-model="addExpirationDate" type="date"><br>
+        <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)">Add New Grocery</button>
 
         <h1>Groceries:
         </h1><br>
@@ -21,12 +21,24 @@
                 <h4>Name:
                     <a href="/groceries/{{grocery.id}}">{{grocery.name}}</a>
                 </h4>
+                <p>Grocery ID:
+                    {{grocery.id}}</p>
                 <p>Created By:
                     {{grocery.user_id}}</p>
                 <p>Made By:
                     {{grocery.made_by}}</p>
                 <p>Expiration Date:
                     {{grocery.expiration_date}}</p>
+
+                <p>Edit Grocery:</p>
+                Grocery Name:
+                <input ng-model="editGroceryName"><br>
+                Expiration Date:
+                <input ng-model="editExpirationDate" type="date"><br>
+                <button ng-click="editGroceries(editGroceryName, editExpirationDate, grocery)">Edit Grocery</button>
+
+                <button ng-click="deleteGroceries(grocery)">Delete Grocery</button><br><hr>
+
                 <br>
             </div>
         </div>
