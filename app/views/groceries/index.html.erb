@@ -12,14 +12,14 @@
         <input ng-model="newGroceryName"><br>
         Expiration Date:
         <input ng-model="addExpirationDate" type="date"><br>
-        <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)">Add New Grocery</button>
+        <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
 
         <h1>Groceries:
         </h1><br>
         <div class="" ng-init="setupGroceries()">
             <div class="" ng-repeat="grocery in groceries">
                 <h4>Name:
-                    <a href="/groceries/{{grocery.id}}">{{grocery.name}}</a>
+                    <a href="/groceries/{{grocery.id}}"><span class=""></span>{{grocery.name}}</a>
                 </h4>
                 <p>Grocery ID:
                     {{grocery.id}}</p>
@@ -29,16 +29,16 @@
                     {{grocery.made_by}}</p>
                 <p>Expiration Date:
                     {{grocery.expiration_date}}</p>
+                    <div class="">
+                      <p>Edit Grocery:</p>
+                      Grocery Name:
+                      <input ng-model="editGroceryName"><br>
+                      Expiration Date:
+                      <input ng-model="editExpirationDate" type="date"><br>
+                      <button ng-click="editGroceries(editGroceryName, editExpirationDate, grocery)"><span class="glyphicon glyphicon-pencil"></span></button>
 
-                <p>Edit Grocery:</p>
-                Grocery Name:
-                <input ng-model="editGroceryName"><br>
-                Expiration Date:
-                <input ng-model="editExpirationDate" type="date"><br>
-                <button ng-click="editGroceries(editGroceryName, editExpirationDate, grocery)">Edit Grocery</button>
-
-                <button ng-click="deleteGroceries(grocery)">Delete Grocery</button><br><hr>
-
+                      <button ng-click="deleteGroceries(grocery)"><span class="glyphicon glyphicon-minus"></span></button><br><hr>
+                    </div>
                 <br>
             </div>
         </div>
