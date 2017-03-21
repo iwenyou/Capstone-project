@@ -2,7 +2,7 @@ class GroceriesController < ApplicationController
   def index
     @groceries = Grocery.where(user_id: current_user.id)
   end
-  # 
+  #
   # def new
   #   @catagories = Catagory.all
   # end
@@ -29,13 +29,13 @@ class GroceriesController < ApplicationController
   #
   # end
   #
-  # def show
-  #
-  #   @grocery = Grocery.find_by(id: params[:id])
-  #
-  #   @catagories = @grocery.catagories
-  #
-  # end
+  def show
+
+    @grocery = Grocery.find_by(id: params[:id])
+
+    @catagories = @grocery.catagories
+
+  end
   #
   # def edit
   #

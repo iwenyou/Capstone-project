@@ -1,41 +1,76 @@
 <div ng-app="app">
     <div ng-controller="groceryCtrl">
+
+      <!-- Add grocery -->
+      <!-- <div class="">
         <h3>Add Grocery:</h3>
         Grocery Name:
         <input ng-model="newGroceryName"><br>
         Expiration Date:
         <input ng-model="addExpirationDate" type="date"><br>
-        <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+        <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)" class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div> -->
+        <!-- display groceries -->
 
-        <h1>Groceries:
-        </h1><br>
-        <div class="" ng-init="setupGroceries()">
-            <div class="" ng-repeat="grocery in groceries">
-                <h4>Name:
-                    <a href="/groceries/{{grocery.id}}"><span class=""></span>{{grocery.name}}</a>
-                </h4>
-                <p>Grocery ID:
-                    {{grocery.id}}</p>
-                <p>Created By:
-                    {{grocery.user_id}}</p>
-                <p>Made By:
-                    {{grocery.made_by}}</p>
-                <p>Expiration Date:
-                    {{grocery.expiration_date}}</p>
-                <p>Category:</p>
-                <button class="btn btn-info" ng-repeat="catagory in catagories">{{catagory.name}}</button>
-                    <div class="">
-                      <p>Edit Grocery:</p>
-                      Grocery Name:
-                      <input ng-model="editGroceryName"><br>
-                      Expiration Date:
-                      <input ng-model="editExpirationDate" type="date"><br>
-                      <button ng-click="editGroceries(editGroceryName, editExpirationDate, grocery)"><span class="glyphicon glyphicon-pencil"></span></button>
+        <div class="row" ng-init="setupGroceries()">
 
-                      <button ng-click="deleteGroceries(grocery)"><span class="glyphicon glyphicon-minus"></span></button><br><hr>
+          <!-- filter -->
+          <div class="col-md-2">
+            <button type="button" name="button" class="btn" ng-click="orderByMe('expiration_date',false)">Order by expiration date</button>
+            <button type="button" name="button" class="btn" ng-click="orderByMe('created_at',true)">Order by added date</button>
+          </div>
+
+          <!-- spacer -->
+          <div class="col-md-1">
+
+          </div>
+          <!-- groceries mangement -->
+          <div class="col-md-9">
+            <div class="row">
+                <div class="" ng-repeat="grocery in groceries | orderBy:myOrderBy:bool">
+                    <div class="clearfix" ng-if="$index % 4 == 0"></div>
+                    <div class="col-sm-3">
+                        <div class="thumbnail">
+                            <div class="caption">
+                                <p>
+                                    <a href="/groceries/{{grocery.id}}">
+                                        <span class=""></span>{{grocery.name}}</a>
+                                </p>
+                                <!-- <p>Grocery ID:
+                                    {{grocery.id}}</p> -->
+                                <!-- <p>Created By:
+                                    {{grocery.user_id}}</p> -->
+                                <!-- <p>Made By:
+                                    {{grocery.made_by}}</p> -->
+                                <p>
+                                    {{grocery.expiration_date}}</p>
+                                <!-- <p>Category:</p>
+                                <button class="btn btn-sm" ng-repeat="catagory in grocery.catagories">{{catagory.name}}
+                                </button> -->
+                                <!-- <div class="">
+                                    <p>Edit Grocery:</p>
+                                    Grocery Name:
+                                    <input ng-model="editGroceryName"><br>
+                                    Expiration Date:
+                                    <input ng-model="editExpirationDate" type="date"><br>
+                                    <button ng-click="editGroceries(editGroceryName, editExpirationDate, grocery)">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </button>
+
+                                    <button ng-click="deleteGroceries(grocery)">
+                                        <span class="glyphicon glyphicon-minus"></span>
+                                    </button><br><hr>
+                                </div> -->
+                                <!-- <br> -->
+                            </div>
+                        </div>
                     </div>
-                <br>
+                </div>
             </div>
+          </div>
         </div>
+
     </div>
 </div>
