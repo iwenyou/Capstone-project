@@ -1,53 +1,19 @@
 <div ng-app="app">
   <div ng-controller="userCtrl">
-    <div ng-init="userSetup">
-      <h1>User Info:</h1>
-      <p>Name: {{user.name}}</p>
-      <p>Email: {{user.email}}</p>
+    <div ng-init="setupUsers()">
+      <div class="jumbotron">
+        <p>User Info:</p>
+        <p>First Name: {{user.first_name}}</p><span><input ng-model="user_first_name"></span>
+        <p>Last Name: {{user.last_name}}</p><span><input ng-model="user_last_name"></span>
+        <p>Email: {{user.email}}</p><span><input ng-model="user_email"></span><br><br>
+
+        <button ng-click="editUsers(user_first_name, user_last_name, user_email, user)" class="btn btn-success">Submit Changes</button>
+      </div>
+      <div class="jumbotron">
+        <p>Delete Account</p>
+        <p>password: </p><input type="password" ng-model="user_password">
+        <button ng-click="destroyUsers(user, user_password)" class="btn btn-danger">DELETE ACCOUNT</button>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-<div class="jumbotron">
-  <h1>User Info:
-  </h1>
-</div>
-
-<p>Name:
-    <%= @user.first_name %>
-    <%= @user.last_name %>
-</p>
-<p>Email:
-    <%= @user.email %></p>
-
-<div>
-    <%= button_to "log out", {:controller => :sessions,
-            :action => 'destroy' }, :method => :delete %>
-
-    <%= button_to "edit", {:controller => :users,
-                  :action => 'edit' }, :method => :get %>
-
-    <%= button_to "Grocery", {:controller => :groceries,
-                  :action => 'index' }, :method => :get %>
-</div>
-
-<h1>
-    Delete Account</h1>
-
-<div>
-    <p><%= @user.first_name %>
-        <%= @user.last_name %></p>
-</div>
-<%= form_tag "/users/#{@user.id}", method: :delete do  %>
-<div>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-</div>
-<div>
-    <%= label_tag :password_confirmation %>
-    <%= password_field_tag :password_confirmation %>
-</div>
-<%= submit_tag "Submit" %>
-<% end %>

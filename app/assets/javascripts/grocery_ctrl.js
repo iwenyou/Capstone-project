@@ -7,6 +7,8 @@
     $scope.setupGroceries = function(){
       $http.get("/api/v1/groceries.json").then(function(response){
         $scope.groceries = response.data;
+        $scope.catagories = response.data.catagories;
+        console.log(response.data.catagories);
       });
     };
 

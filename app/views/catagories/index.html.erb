@@ -1,6 +1,13 @@
-<% @catagories.each do |catagory| %>
-<p> <%= catagory.name %></p>
-<% end %>
+<div ng-app="app">
+  <div ng-controller="catagoryCtrl">
+    <div ng-init="catagorySetup()">
+      <p>Category List:</p>
+      <div ng-repeat="catagory in catagories">
+        <p>name: {{catagory.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= button_to "add a type", {:controller => :catagories,
       :action => 'new' }, :method => :get %>

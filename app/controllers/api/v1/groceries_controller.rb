@@ -5,6 +5,11 @@ class Api::V1::GroceriesController < ApplicationController
     render "index.json.jbuilder"
   end
 
+  def show
+    @grocery = Grocery.find(params[:id])
+    render "show.json.jbuilder"
+  end
+
   def create
     grocery = Grocery.new(
     name: params[:name],

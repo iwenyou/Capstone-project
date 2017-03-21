@@ -17,10 +17,49 @@
 #     )
 # end
 
-10.times do
-  Grocery.create(
-    name: Faker::Food.ingredient,
-    expiration_date: (Faker::Date.forward(100)).strftime("%F"),
-    user_id: 5
-  )
-end
+# 10.times do
+#   Grocery.create(
+#     name: Faker::Food.ingredient,
+#     expiration_date: (Faker::Date.forward(100)).strftime("%F"),
+#     user_id: 5
+#   )
+# end
+
+  # Catagory.create([
+  #   { name: 'Beverages' },
+  #   { name: 'Bread/Bakery' },
+  #   { name: 'Canned/Jarred Goods' },
+  #   { name: 'Dairy' },
+  #   { name: 'Dry/Baking Goods' },
+  #   { name: 'Frozen Foods' },
+  #   { name: 'Meat' },
+  #   { name: 'Produce' }
+  #   ])
+
+  # 2000.times do
+  #   GroceryCategory.create(
+  #     grocery_id: rand(2003..3002),
+  #     catagory_id: rand(1..11)
+  #     )
+  # end
+  #
+  # 10.times do
+  #   GroceryCategory.create(
+  #     grocery_id: 3008,
+  #     catagory_id: rand(1..11)
+  #     )
+  # end
+
+  # 10.times do
+  #   Grocery.create(
+  #     name: Faker::Food.ingredient,
+  #     expiration_date: (Faker::Date.forward(100)).strftime("%F"),
+  #     user_id: 5
+  #   )
+  # end
+  # 20.times do
+  #   GroceryCategory.create(
+  #     grocery_id: rand(3041..3051),
+  #     catagory_id: rand(1..11)
+  #     )
+  # end

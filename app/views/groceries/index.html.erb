@@ -1,12 +1,5 @@
 <div ng-app="app">
     <div ng-controller="groceryCtrl">
-        <p>
-            {{responseCreate}}
-        </p>
-        <h1>Current User:
-            <a href="/users/<%= current_user.id %>"><%= current_user.first_name %></a>
-        </h1>
-
         <h3>Add Grocery:</h3>
         Grocery Name:
         <input ng-model="newGroceryName"><br>
@@ -29,6 +22,8 @@
                     {{grocery.made_by}}</p>
                 <p>Expiration Date:
                     {{grocery.expiration_date}}</p>
+                <p>Category:</p>
+                <button class="btn btn-info" ng-repeat="catagory in catagories">{{catagory.name}}</button>
                     <div class="">
                       <p>Edit Grocery:</p>
                       Grocery Name:
