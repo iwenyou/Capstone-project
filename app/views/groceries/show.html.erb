@@ -1,6 +1,6 @@
 <div class="" ng-app="app">
   <div class="" ng-controller="groceryCtrl">
-    <div class="" ng-init="setupGrocery()">
+    <div class="" ng-init="setupGrocery(<%= @grocery_id %>)">
       <div class="row">
         <div class="col-md-4">
           <div class="jumbotron">
@@ -9,7 +9,6 @@
           </div>
         </div>
         <div class="col-md-8">
-          <div class="" ng-init="setupRecipes()">
             <div ng-repeat="recipe in recipes">
               <div class="jumbotron">
                 <div class="row">
@@ -17,36 +16,13 @@
                     <img src="{{recipe.image}}" alt="" class="img-responsive">
                   </div>
                   <div class="col-md-8">
-                    <p>{{recipe.title}}</p>
+                    <p><a href="">{{recipe.title}}</a></p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-<!-- <h4>Name:
-    <%= @grocery.name %></h4>
-<p>Made By:
-    <%= @grocery.made_by %></p>
-<p>Expiration Date:
-    <%= @grocery.expiration_date %></p>
-<p>Catagories:</p>
-    <% @catagories.each do |catagory| %>
-    <p> <%= catagory.name %></p>
-    <% end %>
-
-<%= button_to "Home", {:controller => :groceries,
-          :action => 'index' }, :method => :get %>
-<%= button_to "edit", {:controller => :groceries,
-          :action => 'edit' }, :method => :get %>
-<%= button_to "delete", {:controller => :groceries,
-          :action => 'destroy' }, :method => :delete %> -->

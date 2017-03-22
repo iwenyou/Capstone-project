@@ -30,10 +30,13 @@ class GroceriesController < ApplicationController
   # end
   #
   def show
-
+    #
     @grocery = Grocery.find_by(id: params[:id])
+    #
+    # @catagories = @grocery.catagories
 
-    @catagories = @grocery.catagories
+    @grocery_id = params[:id]
+
 
   end
   #

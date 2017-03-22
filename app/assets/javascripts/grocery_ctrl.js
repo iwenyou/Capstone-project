@@ -10,20 +10,23 @@
             });
         };
 
-        $scope.setupGrocery = function() {
-            $http.get("/api/v1/groceries/3047.json").then(function(response) {
+        $scope.setupGrocery = function(grocery_id) {
+            $http.get("/api/v1/groceries/" + grocery_id + ".json").then(function(response) {
                 $scope.grocery = response.data;
+                var grocery_name = response.data.name;
+                console.log(grocery_name);
+                setupRecipes(grocery_name);
             });
         };
 
-        $scope.setupRecipes = function() {
-            $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=Bush+Tomato&limitLicense=false&number=5&ranking=1", {
+        function setupRecipes(grocery_name) {
+            $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + grocery_name + "&limitLicense=false&number=5&ranking=1", {
                 headers: {
                     "X-Mashape-Key": "MyqoDQyK4EmshJIfTYENvqZP0xf3p120R29jsnklru3MuF1cZv",
                     "Accept": "application/json"
                 }
             }).then(function(response) {
-              console.log(response.data);
+                console.log(response.data);
                 $scope.recipes = response.data;
             });
         };
