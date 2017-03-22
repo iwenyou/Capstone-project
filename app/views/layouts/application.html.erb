@@ -34,17 +34,19 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li></li>
                             <li>
-                                <a href="/groceries">Grocery</a>
+                                <a href="/groceries"><span class="glyphicon glyphicon-inbox"></span></a>
                             </li>
                             <li>
                                 <% if !current_user %>
                                 <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
                                 <% else %>
-                                <a href="/users/<%= current_user.id %>">Hello,
+                                <a href="/users/<%= current_user.id %>">
+                                  Hello,
                                   <%= current_user.first_name  %></a>
-                                <a href="/logout">Log Out</a>
-
                                 <% end %>
+                            </li>
+                            <li>
+                              <a class="glyphicon glyphicon-menu-down" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3"></a>
                             </li>
                         </ul>
                         <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
@@ -59,6 +61,11 @@
                                 </div>
                                 <button type="submit" class="btn btn-success">Sign in</button>
                             </form>
+                        </div>
+                        <div class="collapse" id="nav-collapse3">
+                          <div class="navbar-right form-inline">
+                            <button type="submit" class="btn"><a href="/logout">Log Out</a></button>
+                          </div>
                         </div>
                     </div>
                     <!-- /.navbar-collapse -->

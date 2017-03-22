@@ -1,4 +1,39 @@
-<h4>Name:
+<div class="" ng-app="app">
+  <div class="" ng-controller="groceryCtrl">
+    <div class="" ng-init="setupGrocery()">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="jumbotron">
+            <p>{{grocery.name}}</p>
+            <p>Expiration Date: {{grocery.expiration_date}}</p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="" ng-init="setupRecipes()">
+            <div ng-repeat="recipe in recipes">
+              <div class="jumbotron">
+                <div class="row">
+                  <div class="col-md-4">
+                    <img src="{{recipe.image}}" alt="" class="img-responsive">
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{recipe.title}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <h4>Name:
     <%= @grocery.name %></h4>
 <p>Made By:
     <%= @grocery.made_by %></p>
@@ -14,4 +49,4 @@
 <%= button_to "edit", {:controller => :groceries,
           :action => 'edit' }, :method => :get %>
 <%= button_to "delete", {:controller => :groceries,
-          :action => 'destroy' }, :method => :delete %>
+          :action => 'destroy' }, :method => :delete %> -->
