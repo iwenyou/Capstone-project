@@ -29,6 +29,19 @@
                 console.log(response.data);
                 $scope.recipes = response.data;
             });
+        }
+
+        $scope.setupRecipe = function(recipe_id){
+          $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+recipe_id+"/information?includeNutrition=false", {
+              headers: {
+                  "X-Mashape-Key": "MyqoDQyK4EmshJIfTYENvqZP0xf3p120R29jsnklru3MuF1cZv",
+                  "Accept": "application/json"
+              }
+          }).then(function(response) {
+              console.log(response.data);
+              $scope.single_recipe = response.data;
+              $scope.instructions = response.data.analyzedInstructions;
+          });
         };
 
 
