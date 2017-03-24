@@ -22,7 +22,7 @@
         function setupRecipes(grocery_name) {
             $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + grocery_name + "&limitLicense=false&number=5&ranking=1", {
                 headers: {
-                    "X-Mashape-Key": "MyqoDQyK4EmshJIfTYENvqZP0xf3p120R29jsnklru3MuF1cZv",
+                    "X-Mashape-Key": ENV['Mashape_api'],
                     "Accept": "application/json"
                 }
             }).then(function(response) {
@@ -34,7 +34,7 @@
         $scope.setupRecipe = function(recipe_id){
           $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+recipe_id+"/information?includeNutrition=false", {
               headers: {
-                  "X-Mashape-Key": "MyqoDQyK4EmshJIfTYENvqZP0xf3p120R29jsnklru3MuF1cZv",
+                  "X-Mashape-Key": ENV['Mashape_api'],
                   "Accept": "application/json"
               }
           }).then(function(response) {

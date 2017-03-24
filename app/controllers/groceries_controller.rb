@@ -1,6 +1,9 @@
 class GroceriesController < ApplicationController
   def index
     @groceries = Grocery.where(user_id: current_user.id)
+
+    
+
   end
   #
   # def new

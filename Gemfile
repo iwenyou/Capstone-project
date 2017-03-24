@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'rest-client'
+
+gem 'unirest'
+
 gem 'rails_12factor', group: :production
 
 gem 'faker'
