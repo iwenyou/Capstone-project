@@ -25,6 +25,7 @@ class Api::V1::GroceriesController < ApplicationController
   end
 
   def update
+    
     grocery = Grocery.find_by(id: params[:id])
 
     grocery.update(
@@ -32,7 +33,7 @@ class Api::V1::GroceriesController < ApplicationController
     expiration_date: params[:expiration_date]
     )
 
-    render json: { errors: grocery.errors.full_messages}, status: 422
+    render "index.json.jbuilder"
 
   end
 

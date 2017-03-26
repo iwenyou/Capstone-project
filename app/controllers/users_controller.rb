@@ -36,6 +36,8 @@ class UsersController < ApplicationController
   def show
     @user = current_user
 
+    User.send_email(params[:id])
+
   end
 
   def edit
