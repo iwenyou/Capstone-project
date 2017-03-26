@@ -27,9 +27,8 @@
       };
 
       $scope.deleteUsers = function(user){
-        
-      };
 
+      };
 
     });
 }());

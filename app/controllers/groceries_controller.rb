@@ -2,7 +2,7 @@ class GroceriesController < ApplicationController
   def index
     @groceries = Grocery.where(user_id: current_user.id)
 
-    
+
 
   end
   #
@@ -39,6 +39,8 @@ class GroceriesController < ApplicationController
     # @catagories = @grocery.catagories
 
     @grocery_id = params[:id]
+
+    @days_left = Grocery.expiration_date_check(current_user.id)
 
 
   end

@@ -7,6 +7,8 @@
         $scope.setupGroceries = function() {
             $http.get("/api/v1/groceries.json").then(function(response) {
                 $scope.groceries = response.data;
+                $scope.groceries_name = collectGroceryName(response.data);
+                setupRecipes($scope.groceries_name);
             });
         };
 
@@ -20,9 +22,12 @@
         };
 
         function setupRecipes(grocery_name) {
+
+          console.log("MASHAPE API: <%= ENV['Mashape_api'] %>");
+
             $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + grocery_name + "&limitLicense=false&number=5&ranking=1", {
                 headers: {
-                    "X-Mashape-Key": ENV['Mashape_api'],
+                    "X-Mashape-Key": "<%= ENV['Mashape_api'] %>",
                     "Accept": "application/json"
                 }
             }).then(function(response) {
@@ -34,7 +39,7 @@
         $scope.setupRecipe = function(recipe_id){
           $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+recipe_id+"/information?includeNutrition=false", {
               headers: {
-                  "X-Mashape-Key": ENV['Mashape_api'],
+                  "X-Mashape-Key": "<%= ENV['Mashape_api'] %>",
                   "Accept": "application/json"
               }
           }).then(function(response) {
@@ -83,6 +88,29 @@
             $scope.myOrderBy = x;
             $scope.bool = y;
         };
+
+        function collectGroceryName(arr){
+          var names = "";
+          arr.forEach(function(obj){
+            names = names + obj.name + ",";
+          });
+          return names;
+        }
+
+        $scope.calDaysLeft = function(exp_date){
+          var myDate = new Date(exp_date);
+
+          var _MS_PER_DAY = 1000 * 60 * 60 * 24;
+          var today = new Date();
+          var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+          var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+          return Math.floor((expDateMill - todayMill) / _MS_PER_DAY);
+        };
+
+
+
+
 
         window.scope = $scope;
 

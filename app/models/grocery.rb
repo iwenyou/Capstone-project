@@ -14,6 +14,7 @@ class Grocery < ApplicationRecord
         result << grocery
       end
     end
-    return result
+    sorted_result = result.sort_by {|arr| arr["expiration_date"] }
+    return sorted_result
   end
 end

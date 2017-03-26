@@ -1,19 +1,30 @@
-<div ng-app="app">
-  <div ng-controller="userCtrl">
-    <div ng-init="setupUsers()">
-      <div class="jumbotron">
-        <p>User Info:</p>
-        <p>First Name: {{user.first_name}}</p><span><input ng-model="user_first_name"></span>
-        <p>Last Name: {{user.last_name}}</p><span><input ng-model="user_last_name"></span>
-        <p>Email: {{user.email}}</p><span><input ng-model="user_email"></span><br><br>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api']%>"></script>
 
-        <button ng-click="editUsers(user_first_name, user_last_name, user_email, user)" class="btn btn-success">Submit Changes</button>
-      </div>
-      <div class="jumbotron">
-        <p>Delete Account</p>
-        <p>password: </p><input type="password" ng-model="user_password">
-        <button ng-click="destroyUsers(user, user_password)" class="btn btn-danger">DELETE ACCOUNT</button>
-      </div>
+<div ng-app="app">
+    <div ng-controller="userCtrl">
+        <div ng-init="setupUsers()">
+
+            <!-- user info -->
+            <div class="jumbotron">
+                <p>User Info:</p>
+                <p>First Name:
+                    {{user.first_name}}</p>
+                <span><input ng-model="user_first_name"></span>
+                <p>Last Name:
+                    {{user.last_name}}</p>
+                <span><input ng-model="user_last_name"></span>
+                <p>Email:
+                    {{user.email}}</p>
+                <span><input ng-model="user_email"></span><br><br>
+
+                <button ng-click="editUsers(user_first_name, user_last_name, user_email, user)" class="btn btn-success">Submit Changes</button>
+            </div>
+            <div class="jumbotron">
+                <p>Delete Account</p>
+                <p>password:
+                </p><input type="password" ng-model="user_password">
+                <button ng-click="destroyUsers(user, user_password)" class="btn btn-danger">DELETE ACCOUNT</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

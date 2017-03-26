@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+
   end
 
   def edit
@@ -70,5 +71,4 @@ class UsersController < ApplicationController
       redirect_to "/users/#{@user.id}"
     end
   end
-
 end
