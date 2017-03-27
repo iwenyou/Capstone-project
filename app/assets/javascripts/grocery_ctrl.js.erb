@@ -74,7 +74,7 @@
 
             $http.patch("/api/v1/groceries/" + grocery.id + ".json", newParams).then(function(response){
               console.log(response.data);
-              $scope.groceries = response.data
+              $scope.setupGroceries();
             });
 
         };

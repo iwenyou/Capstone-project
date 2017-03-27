@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
 
-    User.send_email(params[:id])
+    ModelMailer.new_record_notification(@user).deliver
 
   end
 

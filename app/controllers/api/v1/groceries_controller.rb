@@ -25,15 +25,13 @@ class Api::V1::GroceriesController < ApplicationController
   end
 
   def update
-    
+
     grocery = Grocery.find_by(id: params[:id])
 
     grocery.update(
     name: params[:name],
     expiration_date: params[:expiration_date]
     )
-
-    render "index.json.jbuilder"
 
   end
 

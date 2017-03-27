@@ -1,4 +1,14 @@
 Rails.application.configure do
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "https://api.mailgun.net/v3/www.wenzhang.rocks",
+    :user_name => "postmaster@www.wenzhang.rocks.mailgun.org",
+    :password => "501a81a07f0887ec80d0e22b99247e0d"
+  }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
