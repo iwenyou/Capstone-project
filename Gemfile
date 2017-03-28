@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'material_design_lite-sass'
+
 gem 'rest-client'
 
 gem 'unirest'
