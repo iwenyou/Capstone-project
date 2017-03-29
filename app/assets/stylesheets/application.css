@@ -48,6 +48,11 @@ Follow me on Twitter @maridlcrmn
 #header_title {
   font-family: 'Lily Script One', cursive;
   font-size: 2em;
+  color: white;
+}
+
+#groceries_icon {
+  color: white;
 }
 
 
@@ -64,4 +69,8 @@ Follow me on Twitter @maridlcrmn
 #add_modal {
   top:15%;
   outline: none;
+}
+
+.recipe_card{
+  width:  220px;
 }

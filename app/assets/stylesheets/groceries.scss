@@ -1,16 +1,27 @@
 // Place all the styles related to the Groceries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .img {
     position: relative;
     float: center;
-    width:  220px;
+    width: 220px;
     height: 220px;
     background-position: 50% 50%;
-    background-repeat:   no-repeat;
-    background-size:     cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.days_left_card {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 #grocery_content {
-  background-color: green;
+    background-color: green;
+}
+
+#grocery_header {
+    text-align: center;
 }

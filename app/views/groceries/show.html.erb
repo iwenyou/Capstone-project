@@ -4,9 +4,9 @@
 
             <div class="mdl-grid" id="grocery_content">
                 <div class="mdl-cell mdl-cell--5-col"></div>
-                <div class="mdl-cell mdl-cell--2-col">
-                    <p>{{grocery.name}}</p>
-                    <p>Expiration Date:
+                <div class="mdl-cell mdl-cell--2-col" id="grocery_header">
+                    <h2>{{grocery.name}}</h2>
+                    <p>Expiration Date: <br>
                         {{grocery.expiration_date}}</p>
                 </div>
                 <div class="mdl-cell mdl-cell--5-col"></div>
@@ -16,12 +16,12 @@
 
                 <!-- card -->
 
-                <div class="mdl-card mdl-cell mdl-cell--3-col mdl-shadow--2dp" ng-repeat="recipe in recipes">
+                <div class="mdl-card mdl-cell mdl-cell--3-col mdl-shadow--3dp recipe_card" ng-repeat="recipe in recipes">
 
                     <div class="mdl-card__title mdl-card--expand img" style="background-image:url('{{recipe.image}}')">
                       <h4 class="mdl-card__title-text" ng-click="setupRecipe(recipe.id)" data-toggle="modal" data-target="#myModal" data-backdrop="false">{{recipe.title}}</h4>
                     </div>
-                    <div class="mdl-card__supporting-text"></div>
+                    <!-- <div class="mdl-card__supporting-text"></div> -->
                     <div class="mdl-card__actions mdl-card--border mdl-grid">
                         <div class="mdl-cell mdl-cell--7-col"></div>
                         <div class="mdl-cell mdl-cell--2-col">
