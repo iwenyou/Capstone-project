@@ -80,10 +80,13 @@
         };
 
         $scope.deleteGroceries = function(grocery) {
+          var r = confirm("Are you sure?");
+          if (r == true) {
             $http.delete("/api/v1/groceries/" + grocery.id + ".json").then(function(response) {
                 var index = $scope.groceries.indexOf(grocery);
                 $scope.groceries.splice(index, 1);
             });
+          }
         };
 
         $scope.orderByMe = function(x, y) {

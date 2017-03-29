@@ -1,80 +1,98 @@
 <div class="" ng-app="app">
     <div class="" ng-controller="groceryCtrl">
         <div class="" ng-init="setupGrocery(<%= @grocery_id %>)">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="jumbotron">
-                        <p>{{grocery.name}}</p>
-                        <p>Expiration Date:
-                            {{grocery.expiration_date}}</p>
+
+            <div class="mdl-grid" id="grocery_content">
+                <div class="mdl-cell mdl-cell--5-col"></div>
+                <div class="mdl-cell mdl-cell--2-col">
+                    <p>{{grocery.name}}</p>
+                    <p>Expiration Date:
+                        {{grocery.expiration_date}}</p>
+                </div>
+                <div class="mdl-cell mdl-cell--5-col"></div>
+            </div>
+
+            <div class="mdl-grid">
+
+                <!-- card -->
+
+                <div class="mdl-card mdl-cell mdl-cell--3-col mdl-shadow--2dp" ng-repeat="recipe in recipes">
+
+                    <div class="mdl-card__title mdl-card--expand img" style="background-image:url('{{recipe.image}}')">
+                      <h4 class="mdl-card__title-text" ng-click="setupRecipe(recipe.id)" data-toggle="modal" data-target="#myModal" data-backdrop="false">{{recipe.title}}</h4>
+                    </div>
+                    <div class="mdl-card__supporting-text"></div>
+                    <div class="mdl-card__actions mdl-card--border mdl-grid">
+                        <div class="mdl-cell mdl-cell--7-col"></div>
+                        <div class="mdl-cell mdl-cell--2-col">
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">star_border</i>
+                            </button>
+                        </div>
+                        <div class="mdl-cell mdl-cell--2-col">
+                            <button class="mdl-button mdl-js-button mdl-button--icon">
+                                <i class="material-icons">share</i>
+                            </button>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col"></div>
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <div ng-repeat="recipe in recipes">
-                        <div class="jumbotron">
+
+                <!-- card end -->
+
+            </div>
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog" id="recipe_modal">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{single_recipe.title}}</h4>
+                        </div>
+                        <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="{{recipe.image}}" alt="" class="img-responsive">
+                                    <img src="{{single_recipe.image}}" alt="single_recipe.image" class="img-responsive">
                                 </div>
                                 <div class="col-md-8">
-                                    <p ng-click="setupRecipe(recipe.id)" data-toggle="modal" data-target="#myModal">
-                                        <a href="">{{recipe.title}}</a>
-                                    </p>
-                                    <!-- Modal -->
-                                    <div id="myModal" class="modal fade" role="dialog">
-                                        <div class="modal-dialog">
+                                    <ul>
+                                        <li>Servings:
+                                            {{single_recipe.servings}}</li>
+                                        <li>Source:
+                                            {{single_recipe.sourceName}}</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                    <h4 class="modal-title">{{single_recipe.title}}</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                  <div class="row">
-                                                    <div class="col-md-4">
-                                                      <img src="{{single_recipe.image}}" alt="single_recipe.image" class="img-responsive">
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                      <ul>
-                                                        <li>Servings: {{single_recipe.servings}}</li>
-                                                        <li>Source: {{single_recipe.sourceName}}</li>
-                                                      </ul>
-                                                    </div>
-                                                  </div>
-
-                                                  <!-- instruction -->
-                                                  <div class="" ng-repeat="instruction in instructions">
-                                                    <div class="" ng-repeat="step in instruction.steps">
-                                                      <p>step {{step.number}}: {{step.step}}</p>
-                                                      <h5>Equipment:</h5>
-                                                      <div class="equipments" ng-repeat="equipment in step.equipment">
-                                                        <p>{{equipment.name}}</p>
-                                                        <img src="{{equipments.image}}" alt="">
-                                                      </div>
-                                                      <h5>Ingredients:</h5>
-                                                      <div class="ingredients" ng-repeat="ingredient in step.ingredients">
-                                                        <p>{{ingredient.name}}</p>
-                                                        <img src="{{ingredient.image}}" alt="">
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
+                            <!-- instruction -->
+                            <div class="" ng-repeat="instruction in instructions">
+                                <div class="" ng-repeat="step in instruction.steps">
+                                    <p>step
+                                        {{step.number}}:
+                                        {{step.step}}</p>
+                                    <h5>Equipment:</h5>
+                                    <div class="equipments" ng-repeat="equipment in step.equipment">
+                                        <p>{{equipment.name}}</p>
+                                        <img src="{{equipments.image}}" alt="">
+                                    </div>
+                                    <h5>Ingredients:</h5>
+                                    <div class="ingredients" ng-repeat="ingredient in step.ingredients">
+                                        <p>{{ingredient.name}}</p>
+                                        <img src="{{ingredient.image}}" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<p><%= @days_left %></p>

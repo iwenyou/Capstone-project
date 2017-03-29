@@ -7,31 +7,54 @@
             <option>Peach</option>
         </datalist>
 
-        <!-- Add grocery -->
-        <!-- <div class="">
-            Name:
-            <input list="foods" ng-model="newGroceryName"><br>
-            Expiration Date:
-            <input ng-model="addExpirationDate" type="date"><br>
-            <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)" class="btn btn-success">
-                <span class="glyphicon glyphicon-plus"></span>
-            </button>
-        </div> -->
         <!-- display groceries -->
         <div class="mdl-grid">
             <div class="mdl-cell mdl-cell--10-col"></div>
             <div class="mdl-cell mdl-cell--1-col">
-              <button class="mdl-button mdl-js-button mdl-button--icon">
-                  <i class="material-icons">more_vert</i>
-              </button>
+                <button class="mdl-button mdl-js-button mdl-button--icon" data-toggle="modal" data-target="#myModal2" data-backdrop="false">
+                    <i class="material-icons">add_circle</i>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog" id="add_modal">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">×</button>
+                                <h4 class="modal-title">New Grocery</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Add grocery -->
+
+                                <form action="#">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <input ng-model="newGroceryName" class="mdl-textfield__input" type="text" id="grocery_name">
+                                        <label class="mdl-textfield__label" for="grocery_name">Name:</label>
+                                    </div>
+                                    <input ng-model="addExpirationDate" type="date">
+                                    <button ng-click="addGroceries(newGroceryName, addExpirationDate, <%= current_user.id %>)" class="btn btn-success">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
             <div class="mdl-cell mdl-cell--1-col">
                 <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
                     <i class="material-icons">more_vert</i>
                 </button>
                 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                  <button type="button" name="button" class="mdl-button" ng-click="orderByMe('expiration_date',false)">Order by expiration date</button>
-                  <button type="button" name="button" class="mdl-button" ng-click="orderByMe('created_at',true)">Order by added date</button>
+                    <button type="button" name="button" class="mdl-button" ng-click="orderByMe('expiration_date',false)">Expiration date</button>
+                    <button type="button" name="button" class="mdl-button" ng-click="orderByMe('created_at',true)">Added date</button>
 
                 </ul>
             </div>
@@ -63,12 +86,12 @@
                                 days</p>
                         </div>
                         <div class="mdl-card__actions mdl-card--border mdl-grid">
-                          <div class="mdl-cell mdl-cell--3-col">
-
-                          </div>
-                            <button class="mdl-button mdl-js-button mdl-button--icon">
-                                <i class="material-icons" ng-click="deleteGroceries(grocery)">remove</i>
-                            </button>
+                            <div class="mdl-cell mdl-cell--8-col"></div>
+                            <div class="mdl-cell mdl-cell--4-col">
+                              <button class="mdl-button mdl-js-button mdl-button--icon">
+                                  <i class="material-icons" ng-click="deleteGroceries(grocery)">remove</i>
+                              </button>
+                            </div>
                         </div>
                     </div>
 
@@ -95,6 +118,7 @@
 
             </div>
         </div>
+
     </div>
 </div>
 <!-- test for groceries_name -->

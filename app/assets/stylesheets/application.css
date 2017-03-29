@@ -54,3 +54,14 @@ Follow me on Twitter @maridlcrmn
 .mdl-card__title{
   color: #fff;
 }
+
+
+#recipe_modal {
+  top:8%;
+  outline: none;
+}
+
+#add_modal {
+  top:15%;
+  outline: none;
+}
