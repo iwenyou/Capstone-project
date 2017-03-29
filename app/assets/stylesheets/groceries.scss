@@ -4,7 +4,6 @@
 
 .img {
     position: relative;
-    float: center;
     width: 220px;
     height: 220px;
     background-position: 50% 50%;
@@ -13,15 +12,17 @@
 }
 
 .days_left_card {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+  text-align: right;
 }
 
 #grocery_content {
-    background-color: green;
+    background-color: white;
 }
 
 #grocery_header {
     text-align: center;
+}
+
+.mdl-card__supporting-text {
+  font-size: 1em;
 }
