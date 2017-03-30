@@ -19,6 +19,9 @@ Code snippet by maridlcrmn for Bootsnipp.com
 Follow me on Twitter @maridlcrmn
 */
 
+body {
+  background-color: rgba(250,250,250,1);
+}
 
 
 .navbar-brand { position: relative; z-index: 2; }
@@ -45,11 +48,6 @@ Follow me on Twitter @maridlcrmn
     .nav-collapse>li { float: none; }
 }
 
-#header_title {
-  font-family: 'Lily Script One', cursive;
-  font-size: 2em;
-  color: white;
-}
 
 #groceries_icon {
   color: white;
@@ -73,4 +71,15 @@ Follow me on Twitter @maridlcrmn
 
 .recipe_card{
   width:  220px;
+}
+
+
+#header_title {
+  font-family: 'Lily Script One', cursive;
+  font-size: 2em;
+  color: white;
+}
+
+a {
+  text-decoration: none;
 }

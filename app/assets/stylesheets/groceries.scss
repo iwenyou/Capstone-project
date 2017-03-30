@@ -4,15 +4,24 @@
 
 .img {
     position: relative;
-    width: 220px;
+    width: 230px;
     height: 220px;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+
+
+
+
+
+.groceries-card > .mdl-card__title {
+
+}
+
 .days_left_card {
-  text-align: right;
+    float: right;
 }
 
 #grocery_content {
@@ -24,5 +33,9 @@
 }
 
 .mdl-card__supporting-text {
-  font-size: 1em;
+    font-size: 1em;
+}
+
+.text-center {
+  text-align: center;
 }

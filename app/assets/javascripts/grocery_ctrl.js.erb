@@ -25,7 +25,7 @@
 
           console.log("MASHAPE API: <%= ENV['Mashape_api'] %>");
 
-            $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + grocery_name + "&limitLicense=false&number=5&ranking=1", {
+            $http.get("https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=false&ingredients=" + grocery_name + "&limitLicense=false&number=8&ranking=1", {
                 headers: {
                     "X-Mashape-Key": "<%= ENV['Mashape_api'] %>",
                     "Accept": "application/json"
@@ -88,6 +88,8 @@
             });
           }
         };
+
+
 
         $scope.orderByMe = function(x, y) {
             $scope.myOrderBy = x;
