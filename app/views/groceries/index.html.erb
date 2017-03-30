@@ -131,7 +131,7 @@
             <div class="mdl-card mdl-cell mdl-cell--3-col mdl-shadow--3dp recipe_card" ng-repeat="recipe in recipes">
 
                 <div class="mdl-card__title mdl-card--expand img" style="background-image:url('{{recipe.image}}')">
-                    <h4 class="mdl-card__title-text" ng-click="setupRecipe(recipe.id)" data-toggle="modal" data-target="#myModal" data-backdrop="false">{{recipe.title}}</h4>
+                    <p class="mdl-card__title-text bold_text" ng-click="setupRecipe(recipe.id)" data-toggle="modal" data-target="#myModal" data-backdrop="false">{{recipe.title}}</p>
                 </div>
                 <!-- <div class="mdl-card__supporting-text"></div> -->
                 <div class="mdl-card__actions mdl-card--border mdl-grid">

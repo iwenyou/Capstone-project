@@ -80,6 +80,15 @@ body {
   color: white;
 }
 
+.mdl-layout__header-row {
+  background-color: #4BAF4F;
+}
+
 a {
+  color: white;
   text-decoration: none;
+}
+
+.bold_text {
+  font-weight: bold;
 }
