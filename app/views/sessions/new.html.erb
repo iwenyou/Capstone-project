@@ -1,12 +1,31 @@
-<h1>Login</h1>
+<!-- <h1>Login</h1>
 <%= form_tag '/login', method: :post do %>
-  <div>
+<div>
     <%= label_tag :email %>
     <%= text_field_tag :email %>
-  </div>
-  <div>
+</div>
+<div>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag "Submit" %>
-<% end %>
+</div>
+<%= submit_tag "Submit" %>
+<% end %> -->
+
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col">
+      <h1>Sign In</h1>
+        <form action="/login" method="post">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="email" type="email" id="email">
+                <label class="mdl-textfield__label" for="email">Email</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="password" type="password" id="password">
+                <label class="mdl-textfield__label" for="password">password</label>
+            </div>
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>

@@ -1,4 +1,4 @@
-<h1>Signup!</h1>
+<!-- <h1>Signup!</h1>
 <%= form_tag '/users', method: :post do  %>
 <div>
     <%= label_tag :first_name %>
@@ -24,4 +24,35 @@
 <% end %>
 
 <%= button_to "sign in", {:controller => :sessions,
-      :action => 'new' }, :method => :get %>
+      :action => 'new' }, :method => :get %> -->
+
+<div class="mdl-grid">
+    <div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col">
+        <h1>Sign Up</h1>
+        <form action="/users" method="post">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="first_name" type="first_name" id="first_name">
+                <label class="mdl-textfield__label" for="first_name">First Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="last_name" type="last_name" id="last_name">
+                <label class="mdl-textfield__label" for="last_name">Last Name</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="email" type="email" id="email">
+                <label class="mdl-textfield__label" for="email">Email</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="password" type="password" id="password">
+                <label class="mdl-textfield__label" for="password">Password</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="password_confirmation" type="password" id="password_confirmation">
+                <label class="mdl-textfield__label" for="password_confirmation">Password Confirmation</label>
+            </div>
+            <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="mdl-layout-spacer"></div>
+</div>
