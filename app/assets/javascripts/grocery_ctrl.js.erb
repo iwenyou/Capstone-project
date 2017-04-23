@@ -46,6 +46,7 @@
               console.log(response.data);
               $scope.single_recipe = response.data;
               $scope.instructions = response.data.analyzedInstructions;
+              $scope.ingredients = response.data.extendedIngredients;
           });
         };
 

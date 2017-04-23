@@ -177,22 +177,24 @@
                                 </div>
                             </div>
 
+                            <!-- ingredients -->
+                            <div class="row">
+                              <h5> Ingredients:</h5>
+                              <div class="" ng-repeat="ingredient in ingredients">
+                                <div class="clearfix" ng-if="$index % 3 == 0"></div>
+                                <div class="col-sm-4">
+                                  <img src="{{ingredient.image}}" alt="" class="ingredients_img">
+                                  <p>{{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}</p>
+                                </div>
+                              </div>
+                            </div>
+
                             <!-- instruction -->
                             <div class="" ng-repeat="instruction in instructions">
                                 <div class="" ng-repeat="step in instruction.steps">
-                                    <p>step
+                                    <p> Step
                                         {{step.number}}:
                                         {{step.step}}</p>
-                                    <h5>Equipment:</h5>
-                                    <div class="equipments" ng-repeat="equipment in step.equipment">
-                                        <p>{{equipment.name}}</p>
-                                        <img src="{{equipments.image}}" alt="">
-                                    </div>
-                                    <h5>Ingredients:</h5>
-                                    <div class="ingredients" ng-repeat="ingredient in step.ingredients">
-                                        <p>{{ingredient.name}}</p>
-                                        <img src="{{ingredient.image}}" alt="">
-                                    </div>
                                 </div>
                             </div>
                         </div>
